@@ -69,7 +69,7 @@ Preprocessing followed the BART-specific requirements:
 | Model | BART-base |
 | Epochs | 3 |
 | Batch Size | 8 |
-| Learning Rate | 3e-5 |
+| Learning Rate | $3 \times 10^{-5}$ |
 | Evaluation Metric | ROUGE (1, 2, Lsum) |
 
 Training was monitored via loss curves, with model checkpoints saved after each epoch.
@@ -120,15 +120,17 @@ inputs = tokenizer([text], max_length=1024, return_tensors="pt", truncation=True
 
 # Generate summary
 summary_ids = model.generate(
-    inputs["input_ids"], 
-    max_length=150, 
-    min_length=40, 
+    inputs["input_ids"],
+    max_length=150,
+    min_length=40,
     length_penalty=2.0,
     num_beams=4, # Added a common optimization for better summary quality
     early_stopping=True
 )
 
 print(tokenizer.decode(summary_ids[0], skip_special_tokens=True))
+
+---
 
 ## 🚀 Deployment
 
@@ -141,3 +143,14 @@ The final model can be:
 ---
 
 ## 🧾 Project Structure
+📂 text-summarizer/ │ ├── Text_summarizer.ipynb # Colab fine-tuning notebook ├── data/ # Dataset samples (if any) ├── models/ # Saved checkpoints ├── requirements.txt # Dependencies ├── README.md # Project documentation └── utils.py # Helper scripts (optional)
+
+---
+## 🧰 Dependencies
+
+To run the fine-tuning notebook and inference code, ensure the following dependencies are installed:
+
+```bash
+!pip install transformers datasets torch rouge_score
+
+
