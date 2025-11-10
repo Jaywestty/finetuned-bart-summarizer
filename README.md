@@ -129,3 +129,15 @@ summary_ids = model.generate(
 )
 
 print(tokenizer.decode(summary_ids[0], skip_special_tokens=True))
+
+## 🚀 Deployment
+
+The final model can be:
+
+* Uploaded to **Hugging Face Hub** for public access via API.
+* Integrated into a web app using **FastAPI** or **Streamlit**.
+* Containerized with **Docker** for production use.
+
+---
+
+## 🧾 Project Structure
