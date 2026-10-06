@@ -181,7 +181,3 @@ print(tokenizer.decode(summary_ids[0], skip_special_tokens=True))
 - Base model: BART by Meta AI (Lewis et al., 2019), `facebook/bart-base`.
 - Data: the CNN/DailyMail dataset, loaded from Hugging Face as `abisee/cnn_dailymail`.
 - Built with Hugging Face Transformers, Datasets and Evaluate.
-
-## License
-
-Add the license of your choice here. Check the licenses of the base model and the dataset before reusing the trained model commercially.
